@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { identity } from 'rxjs';
-import { ItemStatus } from './item-status.enum';
+import { CreateItemDto } from 'src/dto/create-item.dto';
 import { Item } from './items.model';
 import { ItemsService } from './items.service';
 
@@ -19,20 +19,8 @@ export class ItemsController {
     }
 
     @Post()
-    create(
-        @Body('id') id: string,
-        @Body('name') name: string,
-        @Body('price') price: number,
-        @Body('description') description: string,
-        ): Item {
-            const item: Item = {
-                id,
-                name,
-                price,
-                description,
-                status: ItemStatus.ON_SALE,
-            }
-        return this.itemsService.create(item);
+    create(@Body() CreateItemDto: CreateItemDto): Item {
+        return this.itemsService.create(CreateItemDto);
     }
     @Patch(':id')
     updateStatus(@Param('id') id: string): Item {

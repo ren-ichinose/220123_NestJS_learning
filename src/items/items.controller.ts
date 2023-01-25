@@ -21,12 +21,12 @@ export class ItemsController {
     async create(@Body() CreateItemDto: CreateItemDto): Promise<Item>  {
         return await this.itemsService.create(CreateItemDto);
     }
-    // @Patch(':id')
-    // updateStatus(@Param('id', ParseUUIDPipe) id: string): Item {
-    //     return this.itemsService.updateStatus(id);
-    // }
+    @Patch(':id')
+    async updateStatus(@Param('id', ParseUUIDPipe) id: string): Promise<Item> {
+        return await this.itemsService.updateStatus(id);
+    }
     @Delete(':id')
-    deleat(@Param('id', ParseUUIDPipe) id: string): void {
-        this.itemsService.deleat(id);
+    async deleat(@Param('id', ParseUUIDPipe) id: string): Promise<void>{
+        await this.itemsService.deleat(id);
     }
 }

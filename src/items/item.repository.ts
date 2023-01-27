@@ -1,4 +1,4 @@
-import { CreateItemDto } from "src/dto/create-item.dto";
+import { CreateItemDto } from "src/items/dto/create-item.dto";
 import { Item } from "src/entities/item.entity";
 import { EntityRepository, Repository } from "typeorm";
 import { ItemStatus } from "./item-status.enum";

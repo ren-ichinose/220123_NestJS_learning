@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateItemDto } from 'src/dto/create-item.dto';
+import { CreateItemDto } from 'src/items/dto/create-item.dto';
 import { ItemStatus } from './item-status.enum';
 import { Item } from '../entities/item.entity';
 import { ItemRepository } from './item.repository';
